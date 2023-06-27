@@ -10,3 +10,11 @@ html,body{
 .container-fluid{
     min-height: 100%;
 }
+
+.i-color{
+    color:chartreuse;
+}
+
+.ss-color{
+    color: silver;
+}
