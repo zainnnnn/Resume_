@@ -1,14 +1,26 @@
-{% extends 'core/base.html' %} {% block content %}
+{% extends 'core/base.html' %} {% block content %} {% if message_name %}
 
+</style>
+<div class="container mt-5 ss-color">
+  <center>
+    <h2>Thanks {{message_name}}!</h2>
+    <p>I have received your email and will respond shortly...</p>
+  </center>
+</div>
+<br /><br /><br />
+
+{% else %}
 <div class="container mt-5">
-  <h1 class="text-warning mb-5 border-bottom">CONTACT</h1>
+  <h1 class="text-warning mb-5 border-bottom">GET IN TOUCH</h1>
+
   <div class="row text-white mb-5">
     <p class="mx-auto mb-5">
       Do you have any questions? Please do not hesitate to contact. I will come
       back to you within a matter of hours to help you.
     </p>
     <div class="col-sm-9 mb-5">
-      <form action="">
+      <form action="{% url 'contact' %}" method="post">
+        {% csrf_token %}
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputName">Your Name</label>
@@ -16,6 +28,7 @@
               type="text"
               class="form-control"
               id="inputName"
+              name="inputName"
               placeholder="Enter your Name"
             />
           </div>
@@ -25,6 +38,7 @@
               type="email"
               class="form-control"
               id="inputEmail"
+              name="inputEmail"
               placeholder="Enter your email"
               required
             />
@@ -35,6 +49,7 @@
               type="text"
               class="form-control"
               id="inputSubject"
+              name="inputSubject"
               placeholder="Enter your subject"
               required
             />
@@ -44,6 +59,7 @@
             <textarea
               class="form-control"
               id="inputTextarea"
+              name="inputTextarea"
               placeholder="Enter your message"
               required
             ></textarea>
@@ -64,24 +80,31 @@
         </li>
         <li>
           <i class="fas fa-envelope mt-4 fa-2x i-color"></i>
-          <p>mzain2353@gmail.com</p>
+          <p>jein9454@gmail.com</p>
         </li>
       </ul>
     </div>
   </div>
 </div>
-
+{% endif %} 
+<footer>
 <div class="text-center">
-  <a href="#" target="_blank"><i class="fa-brands fa-linkedin i-color"></i></a>
-  <a href="#" target="_blank"
+  <a href="https://www.linkedin.com/in/zain-ul-abdin-665685186/" target="_blank"
+    ><i class="fa-brands fa-linkedin i-color"></i
+  ></a>
+  <a href="https://github.com/zainnnnn" target="_blank"
     ><i class="fa-brands fa-github i-color mr-3"></i
   ></a>
-  <a href="#" target="_blank"
+  <a
+    href="https://www.facebook.com/profile.php?id=100010732057214"
+    target="_blank"
     ><i class="fa-brands fa-facebook-f i-color mr-3"></i
   ></a>
-  <a href="#" target="_blank"
+  <a
+    href="https://instagram.com/mzain2353?igshid=NGExMmI2YTkyZg=="
+    target="_blank"
     ><i class="fa-brands fa-instagram i-color mr-3"></i
   ></a>
 </div>
-
+</footer>
 {% endblock content %}
